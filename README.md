@@ -4,11 +4,11 @@
 
 - 🔭 I’m currently working on **my DSA and development skills**
 
-- 🌱 I’m currently learning **MERN and PyTorch**
+- 🌱 I’m currently learning **MERN and Next**
 
-- 👯 I’m looking to collaborate on **ML projects**
+- 👯 I’m looking to collaborate on **Web App Development projects**
 
-- 💬 Ask me about **Machine Learning, Deep Learning and AI**
+- 💬 Ask me about **Machine Learning, Deep Learning, Web Development and AI**
 
 - 📫 How to reach me **sharmaalok705@gmail.com**
 
