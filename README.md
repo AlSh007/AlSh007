@@ -2,11 +2,11 @@
 <h3 align="center">A passionate software developer from India</h3>
 <img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif">
 
-- 🔭 I’m currently working on **my DSA and development skills**
+- 🔭 I’m currently working on **Building Scalable AI apps**
 
-- 🌱 I’m currently learning **MERN and Next**
+- 🌱 I’m currently learning **Langgraph**
 
-- 👯 I’m looking to collaborate on **Web App Development projects**
+- 👯 I’m looking to collaborate on **AI Apps and Web Apps**
 
 - 💬 Ask me about **Machine Learning, Deep Learning, Web Development and AI**
 
