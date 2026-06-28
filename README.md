@@ -69,9 +69,5 @@
 </p>
 
 <p align="center">
-   <img src="https://github-profile-trophy.vercel.app/?username=alsh007&theme=tokyonight&no-frame=true&no-bg=true&column=4&row=2&margin-w=8&margin-h=8" alt="Trophies" />
-</p>
-
-<p align="center">
   <img src="https://komarev.com/ghpvc/?username=alsh007&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
