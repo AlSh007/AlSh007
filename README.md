@@ -69,7 +69,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=alsh007&theme=tokyonight&no-frame=true&column=7&margin-w=10" alt="Trophies" />
+   <img src="https://github-profile-trophy.vercel.app/?username=alsh007&theme=tokyonight&no-frame=true&no-bg=true&column=4&row=2&margin-w=8&margin-h=8" alt="Trophies" />
 </p>
 
 <p align="center">
