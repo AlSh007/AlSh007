@@ -1,62 +1,72 @@
 <h1 align="center">Hi 👋, I'm Alok Sharma</h1>
-<h3 align="center">Software Developer · Building Scalable AI Apps · India 🇮🇳</h3>
+<h3 align="center">Forward Deployed Engineer · Taking AI from messy workflows to production · India 🇮🇳</h3>
 
 <p align="center">
+  <a href="https://alsh007.github.io" target="_blank"><img src="https://img.shields.io/badge/Portfolio-0e75b6?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Portfolio"/></a>
   <a href="https://www.linkedin.com/in/alok-sharma-talks-ai" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
   <a href="https://kaggle.com/alshphoenix" target="_blank"><img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle"/></a>
   <a href="https://leetcode.com/alshphoenix" target="_blank"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
-  <a href="https://instagram.com/alsh_phoenix" target="_blank"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"/></a>
   <a href="mailto:sharmaalok705@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
 </p>
 
-<img align="right" alt="Coding" width="380" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif">
-
 ### 🚀 About Me
 
-- 🔭 I'm currently **building scalable AI apps**
-- 🌱 I'm currently learning **LangGraph** and agentic workflows
-- 👯 I'm looking to collaborate on **AI apps and web apps**
-- 💬 Ask me about **Machine Learning, Deep Learning, Web Development & AI**
+- 🔭 Forward Deployed Engineer at **Future Path**: I embed with customer teams, find where AI actually fits, and ship it with evals and guardrails
+- 🌱 Contributing to open-source **LLM routing and inference infrastructure**: [semantic-router](https://github.com/vllm-project/semantic-router), [AIBrix](https://github.com/vllm-project/aibrix), [llm-d](https://github.com/llm-d/llm-d), [llmgateway](https://github.com/theopenco/llmgateway)
+- 💬 Ask me about **RAG, agents, LLM evaluation and guardrails, and LLM gateways**
+- 👯 Happy to collaborate on open-source LLM infrastructure
 - ⚡ Fun fact: I turn coffee and prompts into production code
 - 📫 Reach me at **sharmaalok705@gmail.com**
 
-<br clear="right"/>
+### 🤝 Open source contributions
+
+Merged pull requests in other projects:
+
+| Project | PR | What it fixed |
+|---|---|---|
+| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4759](https://github.com/vllm-project/semantic-router/pull/4759) | Accept Ollama's top-level `timings` object on streamed chat chunks, so a successful stream no longer ends in an error frame |
+| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4631](https://github.com/vllm-project/semantic-router/pull/4631) | Keep credential failures (401/500) intact on the looper dispatch path instead of a generic 500 |
+| [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2846](https://github.com/vllm-project/aibrix/pull/2846) | Enforce the prefix-hash table's `maxContexts` cap and evict expired pods |
+| [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2832](https://github.com/vllm-project/aibrix/pull/2832) | Key single-port pods as pod/port in least-request routing |
+| [theopenco/llmgateway](https://github.com/theopenco/llmgateway) | [#3960](https://github.com/theopenco/llmgateway/pull/3960) | Clamp auto reasoning effort in the gateway |
+| [llm-d/llm-d](https://github.com/llm-d/llm-d) | [#2599](https://github.com/llm-d/llm-d/pull/2599) | Fix broken relative links in the docs |
 
 ### 🛠️ Tech Stack
 
 **Languages**
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
-![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 
-**AI / ML & Data**
+**AI / LLMs**
 
+![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C?style=flat-square&logo=langchain&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=flat-square&logo=tensorflow&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white)
 ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white)
-![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=flat-square&logo=python&logoColor=white)
 
 **Backend & Web**
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=flat-square&logo=django&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
 
-**Databases**
+**Data & Infrastructure**
 
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-
-**Tools & DevOps**
-
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
