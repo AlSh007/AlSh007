@@ -11,7 +11,7 @@
 ### 🚀 About Me
 
 - 🔭 Forward Deployed Engineer at **Future Path**: I embed with customer teams, find where AI actually fits, and ship it with evals and guardrails
-- 🌱 Contributing to open-source **LLM routing and inference infrastructure**: [semantic-router](https://github.com/vllm-project/semantic-router), [AIBrix](https://github.com/vllm-project/aibrix), [llm-d](https://github.com/llm-d/llm-d), [llmgateway](https://github.com/theopenco/llmgateway)
+- 🌱 Contributing to open-source **LLM routing and inference infrastructure**: [semantic-router](https://github.com/vllm-project/semantic-router), [AIBrix](https://github.com/vllm-project/aibrix), [llm-d](https://github.com/llm-d/llm-d), [llmgateway](https://github.com/theopenco/llmgateway), [agent-router](https://github.com/theagentrouter/agent-router)
 - 💬 Ask me about **RAG, agents, LLM evaluation and guardrails, and LLM gateways**
 - 👯 Happy to collaborate on open-source LLM infrastructure
 - ⚡ Fun fact: I turn coffee and prompts into production code
@@ -23,6 +23,7 @@ Merged pull requests in other projects:
 
 | Project | PR | What it fixed |
 |---|---|---|
+| [theagentrouter/agent-router](https://github.com/theagentrouter/agent-router) | [#2749](https://github.com/theagentrouter/agent-router/pull/2749) | Accept `reasoning_effort: high` for Gemini 3 Pro models, and map `medium` to the right thinking level per model |
 | [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4759](https://github.com/vllm-project/semantic-router/pull/4759) | Accept Ollama's top-level `timings` object on streamed chat chunks, so a successful stream no longer ends in an error frame |
 | [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4631](https://github.com/vllm-project/semantic-router/pull/4631) | Keep credential failures (401/500) intact on the looper dispatch path instead of a generic 500 |
 | [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2846](https://github.com/vllm-project/aibrix/pull/2846) | Enforce the prefix-hash table's `maxContexts` cap and evict expired pods |
