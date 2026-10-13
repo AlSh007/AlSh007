@@ -19,18 +19,18 @@
 
 ### 🤝 Open source contributions
 
-Merged pull requests in other projects:
+A selection of my merged pull requests in other projects (bug fixes with tests):
 
 | Project | PR | What it fixed |
 |---|---|---|
-| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4712](https://github.com/vllm-project/semantic-router/pull/4712) | Stop tool-observability debug headers from replacing a dispatch failure (such as an unresolved credential) with a request continue |
+| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4858](https://github.com/vllm-project/semantic-router/pull/4858) | Stop mirroring a request the router rejected (for example on an unresolved credential) to the shadow model |
+| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4712](https://github.com/vllm-project/semantic-router/pull/4712) | Stop tool-observability debug headers from replacing a dispatch failure with a request continue, which let a rejected request go upstream |
+| [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2975](https://github.com/vllm-project/aibrix/pull/2975) | Report a missing latency in the pending-load estimate, so routers stop treating a pod with an incomplete profile as free |
 | [theagentrouter/agent-router](https://github.com/theagentrouter/agent-router) | [#2749](https://github.com/theagentrouter/agent-router/pull/2749) | Accept `reasoning_effort: high` for Gemini 3 Pro models, and map `medium` to the right thinking level per model |
-| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4759](https://github.com/vllm-project/semantic-router/pull/4759) | Accept Ollama's top-level `timings` object on streamed chat chunks, so a successful stream no longer ends in an error frame |
-| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4631](https://github.com/vllm-project/semantic-router/pull/4631) | Keep credential failures (401/500) intact on the looper dispatch path instead of a generic 500 |
 | [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2846](https://github.com/vllm-project/aibrix/pull/2846) | Enforce the prefix-hash table's `maxContexts` cap and evict expired pods |
-| [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2832](https://github.com/vllm-project/aibrix/pull/2832) | Key single-port pods as pod/port in least-request routing |
 | [theopenco/llmgateway](https://github.com/theopenco/llmgateway) | [#3960](https://github.com/theopenco/llmgateway/pull/3960) | Clamp auto reasoning effort in the gateway |
-| [llm-d/llm-d](https://github.com/llm-d/llm-d) | [#2599](https://github.com/llm-d/llm-d/pull/2599) | Fix broken relative links in the docs |
+
+[See all merged pull requests →](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3AAlSh007+-user%3AAlSh007)
 
 ### 🛠️ Tech Stack
 
