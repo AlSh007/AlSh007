@@ -27,8 +27,10 @@ A selection of my merged pull requests in other projects (bug fixes with tests):
 | [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4712](https://github.com/vllm-project/semantic-router/pull/4712) | Stop tool-observability debug headers from replacing a dispatch failure with a request continue, which let a rejected request go upstream |
 | [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2975](https://github.com/vllm-project/aibrix/pull/2975) | Report a missing latency in the pending-load estimate, so routers stop treating a pod with an incomplete profile as free |
 | [theagentrouter/agent-router](https://github.com/theagentrouter/agent-router) | [#2749](https://github.com/theagentrouter/agent-router/pull/2749) | Accept `reasoning_effort: high` for Gemini 3 Pro models, and map `medium` to the right thinking level per model |
-| [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2846](https://github.com/vllm-project/aibrix/pull/2846) | Enforce the prefix-hash table's `maxContexts` cap and evict expired pods |
+| [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2846](https://github.com/vllm-project/aibrix/pull/2846) | Enforce the prefix-hash table's `maxContexts` cap and evict expired pods ([write-up: what the review taught me about activating dead code](writeups/aibrix-prefix-cache-eviction.md)) |
 | [theopenco/llmgateway](https://github.com/theopenco/llmgateway) | [#3960](https://github.com/theopenco/llmgateway/pull/3960) | Clamp auto reasoning effort in the gateway |
+
+**Deeper dive:** [Fixing code that was never called: wiring up eviction in AIBrix's prefix-cache index](writeups/aibrix-prefix-cache-eviction.md)
 
 [See all merged pull requests →](https://github.com/pulls?q=is%3Apr+is%3Amerged+author%3AAlSh007+-user%3AAlSh007)
 
