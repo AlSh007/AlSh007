@@ -11,7 +11,7 @@
 ### 🚀 About Me
 
 - 🔭 Forward Deployed Engineer at **Future Path**: I embed with customer teams, find where AI actually fits, and ship it with evals and guardrails
-- 🌱 Contributing to open-source **LLM routing and inference infrastructure**: [semantic-router](https://github.com/vllm-project/semantic-router), [AIBrix](https://github.com/vllm-project/aibrix), [llm-d](https://github.com/llm-d/llm-d), [llmgateway](https://github.com/theopenco/llmgateway), [agent-router](https://github.com/theagentrouter/agent-router), [LiteLLM](https://github.com/BerriAI/litellm)
+- 🌱 Contributing to open-source **LLM routing and inference infrastructure**: [semantic-router](https://github.com/vllm-project/semantic-router), [AIBrix](https://github.com/vllm-project/aibrix), [llm-d](https://github.com/llm-d/llm-d), [llmgateway](https://github.com/theopenco/llmgateway), [agent-router](https://github.com/theagentrouter/agent-router), [LiteLLM](https://github.com/BerriAI/litellm), [caveman](https://github.com/JuliusBrussee/caveman)
 - 💬 Ask me about **RAG, agents, LLM evaluation and guardrails, and LLM gateways**
 - 👯 Happy to collaborate on open-source LLM infrastructure
 - ⚡ Fun fact: I turn coffee and prompts into production code
@@ -19,11 +19,13 @@
 
 ### 🤝 Open source contributions
 
-A selection of my merged pull requests in other projects (bug fixes with tests), including one I co-authored in LiteLLM:
+A selection of my merged pull requests in other projects (bug fixes with tests), including one I co-authored in LiteLLM. The last row is three fixes the caveman maintainer adopted into a batch PR with my authorship kept:
 
 | Project | PR | What it fixed |
 |---|---|---|
 | [BerriAI/litellm](https://github.com/BerriAI/litellm) | [#46617](https://github.com/BerriAI/litellm/pull/46617) (co-author) | Cache the public provider and agent field endpoints, so the bundled JSON is read and parsed once per process instead of on every request |
+| [llm-d/llm-d](https://github.com/llm-d/llm-d) | [#2410](https://github.com/llm-d/llm-d/pull/2410) | Align the modelexpress-p2p guide's `PROVIDER_NAME` default with optimized-baseline, so a default install no longer applies GKE-only router resources on a non-GKE cluster |
+| [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#5167](https://github.com/vllm-project/semantic-router/pull/5167) | Reject a zero or negative `max_tokens_limit` or `max_n` in the request params config, so a bad limit no longer rewrites every client's `max_tokens` or `n` to zero and gets each request rejected upstream |
 | [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#5152](https://github.com/vllm-project/semantic-router/pull/5152) | Reject a Set answer that omits a declared label's probability, so a missing label is no longer read as zero routing evidence |
 | [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4858](https://github.com/vllm-project/semantic-router/pull/4858) | Stop mirroring a request the router rejected (for example on an unresolved credential) to the shadow model |
 | [vllm-project/semantic-router](https://github.com/vllm-project/semantic-router) | [#4712](https://github.com/vllm-project/semantic-router/pull/4712) | Stop tool-observability debug headers from replacing a dispatch failure with a request continue, which let a rejected request go upstream |
@@ -32,6 +34,7 @@ A selection of my merged pull requests in other projects (bug fixes with tests),
 | [theagentrouter/agent-router](https://github.com/theagentrouter/agent-router) | [#2749](https://github.com/theagentrouter/agent-router/pull/2749) | Accept `reasoning_effort: high` for Gemini 3 Pro models, and map `medium` to the right thinking level per model |
 | [vllm-project/aibrix](https://github.com/vllm-project/aibrix) | [#2846](https://github.com/vllm-project/aibrix/pull/2846) | Enforce the prefix-hash table's `maxContexts` cap and evict expired pods ([write-up: what the review taught me about activating dead code](writeups/aibrix-prefix-cache-eviction.md)) |
 | [theopenco/llmgateway](https://github.com/theopenco/llmgateway) | [#3960](https://github.com/theopenco/llmgateway/pull/3960) | Clamp auto reasoning effort in the gateway |
+| [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | [#1315](https://github.com/JuliusBrussee/caveman/pull/1315) (3 fixes adopted) | Stop `uninstall` deleting a `settings.json.bak` it did not create, read the schema of Anthropic `input_schema` tools in `shrink`, and keep integers above 2^53 off the numeric range track so elision markers stay correct |
 
 **Deeper dive:** [Fixing code that was never called: wiring up eviction in AIBrix's prefix-cache index](writeups/aibrix-prefix-cache-eviction.md)
 
