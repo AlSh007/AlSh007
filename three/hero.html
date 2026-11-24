@@ -1,0 +1,155 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Alok Sharma · hero</title>
+<style>
+  html,body{margin:0;background:#05070d;overflow:hidden}
+  #stage{position:relative;width:1200px;height:400px;overflow:hidden;background:radial-gradient(120% 140% at 75% 50%,#0d1530 0%,#070a14 55%,#05070d 100%)}
+  canvas{position:absolute;inset:0}
+  .txt{position:absolute;left:64px;top:0;height:400px;display:flex;flex-direction:column;justify-content:center;z-index:2;
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#e6edf3}
+  .cmd{font:500 18px ui-monospace,SFMono-Regular,Menlo,monospace;color:#8b949e;margin-bottom:10px}
+  .cmd b{color:#36bcf7;font-weight:500}
+  h1{margin:0;font-size:68px;font-weight:800;letter-spacing:-1.8px;line-height:1.05;
+     background:linear-gradient(90deg,#36bcf7,#a371f7 70%,#f778ba);-webkit-background-clip:text;color:transparent}
+  .role{font-size:23px;font-weight:600;margin-top:14px}
+  .sub{font-size:18px;color:#9aa5b1;margin-top:8px;max-width:520px;line-height:1.4}
+  .chips{display:flex;gap:10px;margin-top:20px}
+  .chips span{font-size:15px;font-weight:500;color:#c9d1d9;padding:6px 14px;border-radius:999px;
+              border:1px solid #2b3445;background:rgba(22,27,34,.75)}
+  .lbl{position:absolute;z-index:2;transform:translate(-50%,-50%);font:700 13px ui-monospace,SFMono-Regular,Menlo,monospace;
+       color:#e6edf3;padding:4px 10px;border-radius:8px;background:rgba(13,17,23,.78);border:1px solid #30363d;white-space:nowrap}
+  .lbl.router{border-color:#a371f7;color:#d2b8ff}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head><body>
+<div id="stage">
+  <div class="txt">
+    <div class="cmd">~/alsh007 $ <b>whoami</b></div>
+    <h1>Alok Sharma</h1>
+    <div class="role">Forward Deployed Engineer · Future Path</div>
+    <div class="sub">Taking AI from messy workflows to production, and fixing the LLM infra underneath.</div>
+    <div class="chips"><span>LLM routing</span><span>Inference</span><span>RAG</span><span>Agents</span><span>Evals</span></div>
+  </div>
+</div>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const W = 1200, H = 400, LOOP = 10;              // seconds; every motion is periodic in LOOP
+const TAU = Math.PI * 2;
+const STILL_BG = location.search.includes('still');     // frozen background keeps the README GIF small
+const stage = document.getElementById('stage');
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(W, H); renderer.setClearColor(0x000000, 0);
+stage.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(38, W / H, 0.1, 200);
+camera.position.set(0, 1.0, 12.5); camera.lookAt(0, 0, 0);
+camera.setViewOffset(W, H, -150, 0, W, H);       // push the subject to the right of the frame
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(W, H), 0.8, 0.5, 0.2));
+composer.addPass(new OutputPass());
+
+const C = { cyan: 0x36bcf7, violet: 0xa371f7, green: 0x3fb950, pink: 0xf778ba };
+const CX = 3.4;                                  // router x in world space
+
+// Stars (gently sway, loop-safe)
+const starGeo = new THREE.BufferGeometry(); const sp = [];
+for (let i = 0; i < 900; i++) sp.push((rnd() - .5) * 60, (rnd() - .5) * 26, -8 - rnd() * 40);
+starGeo.setAttribute('position', new THREE.Float32BufferAttribute(sp, 3));
+const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({ color: 0x8fb5ff, size: 0.07, transparent: true, opacity: .55 }));
+scene.add(stars);
+
+// Perspective grid floor scrolling toward the camera
+const grid = new THREE.GridHelper(80, 80, 0x1f3a66, 0x15233d);
+grid.position.y = -3.2; grid.material.transparent = true; grid.material.opacity = .45; scene.add(grid);
+
+// Router: wireframe icosahedron + glowing core + rings
+const router = new THREE.Group(); router.position.set(CX, 0, 0); scene.add(router);
+const shell = new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(1.15, 1)),
+  new THREE.LineBasicMaterial({ color: C.violet, transparent: true, opacity: .9 }));
+router.add(shell);
+const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.55, 3), new THREE.MeshBasicMaterial({ color: 0x7c4dff }));
+router.add(core);
+const ringMat = c => new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .55, side: THREE.DoubleSide });
+const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.75, 0.012, 8, 160), ringMat(C.cyan));
+const ring2 = new THREE.Mesh(new THREE.TorusGeometry(2.05, 0.01, 8, 160), ringMat(C.pink));
+ring1.rotation.x = 1.25; ring2.rotation.set(1.1, 0.5, 0); router.add(ring1, ring2);
+
+// Model nodes orbiting on a tilted ellipse
+const models = [['small', C.cyan], ['reasoning', C.green], ['code', C.pink]].map(([name, color], i) => {
+  const m = new THREE.Mesh(new THREE.SphereGeometry(0.28, 32, 16), new THREE.MeshBasicMaterial({ color }));
+  const halo = new THREE.Mesh(new THREE.SphereGeometry(0.42, 32, 16), new THREE.MeshBasicMaterial({ color, transparent: true, opacity: .18 }));
+  m.add(halo); scene.add(m);
+  const el = document.createElement('div'); el.className = 'lbl'; el.textContent = name; stage.appendChild(el);
+  return { m, el, color, phase: i / 3 };
+});
+const orbitPos = (phase, t, out) => {
+  const a = TAU * (phase + t / LOOP);
+  return out.set(CX + Math.cos(a) * 3.3, Math.sin(a) * 1.25 + 0.2, Math.sin(a) * 2.2);
+};
+
+// Incoming prompt stream: from the left, behind the text, into the router
+const inCurve = new THREE.CubicBezierCurve3(new THREE.Vector3(-9, -1.6, -2), new THREE.Vector3(-4, 2.4, -1),
+  new THREE.Vector3(0.5, -1.2, 0.5), new THREE.Vector3(CX, 0, 0));
+const inLine = new THREE.Line(new THREE.BufferGeometry().setFromPoints(inCurve.getPoints(120)),
+  new THREE.LineBasicMaterial({ color: 0x2a4a7a, transparent: true, opacity: .5 }));
+scene.add(inLine);
+const makePackets = (n, color, size) => Array.from({ length: n }, () => {
+  const p = new THREE.Mesh(new THREE.SphereGeometry(size, 16, 8), new THREE.MeshBasicMaterial({ color }));
+  scene.add(p); return p;
+});
+const inPackets = makePackets(14, C.cyan, 0.075);
+
+// Outgoing routes: live curves from router to each moving model
+const outRoutes = models.map(md => {
+  const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(new Array(60).fill(0).map(() => new THREE.Vector3())),
+    new THREE.LineBasicMaterial({ color: md.color, transparent: true, opacity: .35 }));
+  scene.add(line);
+  return { md, line, packets: makePackets(5, md.color, 0.07), curve: new THREE.QuadraticBezierCurve3(new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()) };
+});
+
+const routerLbl = document.createElement('div'); routerLbl.className = 'lbl router'; routerLbl.textContent = 'router'; stage.appendChild(routerLbl);
+const v = new THREE.Vector3();
+const place = (el, pos, dy = 0) => { v.copy(pos).project(camera);
+  el.style.left = ((v.x + 1) / 2 * W) + 'px'; el.style.top = ((1 - v.y) / 2 * H + dy) + 'px'; };
+
+function renderAt(t) {
+  const u = t / LOOP;                                         // 0..1 over the loop
+  if (!STILL_BG) {
+    stars.rotation.z = 0.04 * Math.sin(TAU * u);
+    grid.position.z = (u * 4) % 1;                            // scrolls exactly 4 cells per loop
+  }
+  shell.rotation.set(0.3, TAU * u, 0.2);  // one full turn per loop
+  ring1.rotation.z = TAU * u; ring2.rotation.z = -TAU * u;
+  const pulse = 1 + 0.12 * Math.sin(TAU * u * 5);
+  core.scale.setScalar(pulse);
+
+  inPackets.forEach((p, i) => { p.position.copy(inCurve.getPoint((u * 3 + i / inPackets.length) % 1)); });
+
+  outRoutes.forEach(r => {
+    const end = orbitPos(r.md.phase, t, r.md.m.position);
+    const mid = new THREE.Vector3((CX + end.x) / 2, end.y + 1.4, (end.z) / 2 + 0.8);
+    r.curve.v0.set(CX, 0, 0); r.curve.v1.copy(mid); r.curve.v2.copy(end);
+    r.line.geometry.setFromPoints(r.curve.getPoints(59));
+    r.packets.forEach((p, i) => p.position.copy(r.curve.getPoint((u * 4 + i / r.packets.length) % 1)));
+    place(r.md.el, end, -26);
+  });
+  place(routerLbl, new THREE.Vector3(CX, -1.55, 0));
+  composer.render();
+}
+window.renderAt = renderAt;
+window.LOOP = LOOP;
+if (!location.search.includes('capture')) {
+  const t0 = performance.now();
+  (function tick() { renderAt(((performance.now() - t0) / 1000) % LOOP); requestAnimationFrame(tick); })();
+} else { renderAt(0); }
+window.ready = true;
+</script>
+</body></html>
